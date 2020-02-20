@@ -1,6 +1,7 @@
-<div class="container-fluid mt-3">
+<div class="container   mt-3">
   <h3 class="p-0 mb-0">Listado de Bodegas</h3>
   <hr class="mt-2 mb-3">
+
   <div class="col-sm-4 p-0 ml-auto">
     <div class="form-group">
       <input class="form-control input-lg" placeholder="Buscar bodega..."/>
@@ -16,27 +17,36 @@
         <th scope="col">Acción</th>
       </tr>
       </thead>
-      <tbody *ngIf="bodegas.length == 0; else datosBodega">
-      <tr>
-        <td colspan="4">No hay datos que mostrar.</td>
+      <tbody *ngIf="bodegas.length > 0; else datosBodega" >
+      <tr *ngFor="let bod of bodegas" >
+        <td class="text-center">{{bod.id}}</td>
+        <td class="text-center">{{bod.descripcion | uppercase}}</td>
+        <td class="text-center">
+          <span class="badge badge-primary">{{bod.idhacienda == 1 ? 'PRIMOBANANO' : 'SOFCABANANO' }}</span></td>
+        <td style="width: 10%" class="text-center">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
+            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+          </div>
+        </td>
       </tr>
       </tbody>
       <ng-template #datosBodega>
-        <tbody *ngFor="let bod of bodegas">
+        <tbody>
         <tr>
-          <td class="text-center">{{bod.id}}</td>
-          <td class="text-center">{{bod.descripcion | uppercase}}</td>
-          <td class="text-center">
-            <span class="badge badge-primary">{{bod.idhacienda == 1 ? 'PRIMOBANANO' : 'SOFCABANANO' }}</span></td>
-          <td style="width: 10%" class="text-center">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-              <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
-              <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-            </div>
-          </td>
+          <td colspan="4">No hay datos que mostrar.</td>
         </tr>
         </tbody>
       </ng-template>
     </table>
+    <nav aria-label="Page navigation example" *ngIf="bodegas.length > 0">
+      <ul class="pagination" *ngFor="let x of bodegas">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
   </div>
 </div>

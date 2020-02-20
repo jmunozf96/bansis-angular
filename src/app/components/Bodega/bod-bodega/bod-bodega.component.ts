@@ -22,7 +22,7 @@ export class BodBodegaComponent implements OnInit {
   ngOnInit(): void {
     this._bodegaService.getBodegas().subscribe(
       response => {
-        for (let bodega of response.bodegas) {
+        for (let bodega of response.bodegas.data) {
           this.bodega = new Bod_bodega(bodega.id, bodega.descripcion, bodega.idhacienda);
           this.bodegas.push(this.bodega);
         }

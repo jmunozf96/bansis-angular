@@ -16,4 +16,5 @@ export class BodegaService {
   getBodegas(): Observable<any> {
     return this._http.get(this.url + 'bod_bodega');
   }
+  
 }
