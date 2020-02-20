@@ -56,22 +56,16 @@ export class LoginComponent implements OnInit {
             error => {
               this.status = false;
               form.reset();
-              // @ts-ignore
-              $('#user').focus();
               console.log(<any> error);
             }
           );
         } else {
           this.status = false;
-          // @ts-ignore
-          $('#user').focus();
           form.reset();
         }
       },
       error => {
         this.status = false;
-        // @ts-ignore
-        $('#user').focus();
         form.reset();
         console.log(<any> error);
       }
@@ -95,5 +89,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+
 
 }

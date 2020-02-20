@@ -22,7 +22,6 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngOnInit(): void {
-    console.log(this.identity)
   }
 
   ngDoCheck(): void {

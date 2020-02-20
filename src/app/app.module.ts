@@ -10,13 +10,15 @@ import {ErrorComponent} from './components/error/error.component';
 import {InicioComponent} from './components/inicio/inicio.component';
 
 import {AuthGuard} from './guards/auth.guard';
+import { BodBodegaComponent } from './components/Bodega/bod-bodega/bod-bodega.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ErrorComponent,
-    InicioComponent
+    InicioComponent,
+    BodBodegaComponent
   ],
   imports: [
     BrowserModule,
